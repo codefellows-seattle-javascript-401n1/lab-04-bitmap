@@ -10,15 +10,15 @@ module.exports.Buffobject = function(data) {
   this.pixStart = data.readInt32LE(10);
   // dib header
   this.pixEnd = data.length;
-  this.colors = data.readIntLE(46);
-  this.importantcolors = data.readIntLE(50);
+  this.colors = data.readInt32LE(46);
+  this.importantcolors = data.readInt32LE(50);
   this.width = data.readIntLE(18);
   this.height = data.readIntLE(22);
-  this.colorplains = data.readIntLE(26);
-  this.bitsperpixel = data.readIntLE(28);
-  this.compressionobject = data.readIntLE(30);
-  this.horizontalrez = data.readIntLE(38);
-  this.vertrez = data.readIntLE(42);
+  this.colorplains = data.readInt16LE(26);
+  this.bitsperpixel = data.readInt16LE(28);
+  this.compressionobject = data.readInt32LE(30);
+  this.horizontalrez = data.readInt32LE(38);
+  this.vertrez = data.readInt32LE(42);
 };
 //make a method to turn object into buffer
 module.exports.Buffobject.prototype.toBuffer = function () {
