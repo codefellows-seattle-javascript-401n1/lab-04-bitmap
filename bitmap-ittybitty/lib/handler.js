@@ -25,5 +25,6 @@ function writer(){
     console.log('data has been saved to bitmap-end.bmp');
   });
 }
+
 exports.writer = writer;
 module.exports = exports;

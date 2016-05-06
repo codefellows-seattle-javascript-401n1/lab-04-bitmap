@@ -4,21 +4,22 @@
 const fs = require('fs');
 const bitmap = fs.readFileSync(__dirname +'/../img/bitmap1.bmp');
 
-function allThatData(){
-  bitmapData.headField = bitmap.toString('ascii', 0, 2);
-  bitmapData.size = bitmap.readUInt32LE(2);
-  bitmapData.pixelArrayStart = bitmap.readUInt32LE(10);
-  bitmapData.colorPaletteSize = bitmap.readUInt32LE(46);
-  bitmapData.onecolor = bitmap.toString('hex',58,62);
-  bitmapData.onepixel = bitmap.toString('ascii', 1078, 1079);
-  bitmapData.paletteStart = (bitmapData.pixelArrayStart - bitmapData.colorPaletteSize*4);
+function AllThatData(){
+  this.headField = bitmap.toString('ascii', 0, 2);
+  this.size = bitmap.readUInt32LE(2);
+  this.pixelArrayStart = bitmap.readUInt32LE(10);
+  this.colorPaletteSize = bitmap.readUInt32LE(46);
+  this.onecolor = bitmap.toString('hex',58,62);
+  this.onepixel = bitmap.toString('ascii', 1078, 1079);
+  this.paletteStart = (this.pixelArrayStart - this.colorPaletteSize*4);
 
-  console.dir(bitmapData);
+  // console.dir(this);
 }
 
-var bitmapData = {};
+var bitmapData = new AllThatData;
+console.log(bitmapData);
 
-allThatData();
+
 
 var start = bitmapData.paletteStart;
 var finish = bitmapData.pixelArrayStart;
