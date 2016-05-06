@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 
-const paths = ['*.js', 'lab-kyle/lib/*.js', 'lab-kyle/test/*.js'];
+const paths = ['*.js', 'bitmap-mosnter/lib/*.js', 'bitmap-mosnter/test/*.js'];
 
 gulp.task('eslint', function() {
   return gulp.src(paths)
@@ -59,7 +59,7 @@ gulp.task('test', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['lab-kyle/lib/**', 'lab-kyle/test/**'], ['test', 'eslint']);
+  gulp.watch(['bitmap-mosnter/lib/**', 'bitmap-mosnter/test/**'], ['test', 'eslint']);
 });
 
 gulp.task('default', ['eslint', 'test', 'watch']);
