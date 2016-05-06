@@ -1,22 +1,30 @@
 'use strict';
 
 const fs = require('fs');
+var buffer = null;
 
-var bufferOut
+var filePath = __dirname + '/../img/bitmap1.bmp';
 
-function reader(){
-  fs.readFile(__dirname + '/../img/bitmap1.bmp', function(err, data){
+function reader(path, cb){
+  fs.readFile(path, function(err, data){
     if (err) throw err;
-    var bufferFromBitmap = data.toString('hex', 0);
-    console.log('data has been read and passed to bufferFromBitmap' + bufferFromBitmap);
+    console.log('data has been read and passed to bufferFromBitmap ');
+    return cb ? cb(data.toString('hex', 0)) : data.toString('hex', 0);
   });
 }
+exports.reader = reader;
+
+reader(filePath, function(data){
+  buffer = data;
+  console.log(buffer);
+});
 
 function writer(){
-  fs.writeFile(__dirname + '/../img/bitmap-end.bmp', 'bufferToBitmap', 'hex', (err) => {
+  fs.writeFile(filePath, 'bufferToBitmap', 'hex', (err) => {
     if(err) throw err;
     console.log('data has been saved to bitmap-end.bmp');
   });
 }
 
-reader();
+exports.writer = writer;
+module.exports = exports;
