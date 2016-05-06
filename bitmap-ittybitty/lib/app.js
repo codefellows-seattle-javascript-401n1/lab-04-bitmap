@@ -1,6 +1,5 @@
 'use strict';
 
-// const transform = require(__dirname + '/transform');
 const fs = require('fs');
 const bitmap = fs.readFileSync(__dirname +'/../img/bitmap1.bmp');
 
@@ -11,7 +10,6 @@ const AllThatData = module.exports = function (buffer){
   this.reservedOne = buffer.readUInt16LE(6);
   this.reservedtwo = buffer.readUInt16LE(8);
   this.pixelArrayStart = buffer.readUInt32LE(10);
-
   // dib header
   this.headerSize = buffer.readUInt32LE(14);
   this.width = buffer.readUInt32LE(18);
@@ -24,16 +22,9 @@ const AllThatData = module.exports = function (buffer){
   this.vertical = buffer.readUInt32LE(42);
   this.numColor = buffer.readUInt32LE(46);
   this.numImpColor = buffer.readUInt32LE(48);
-
-
-  // this.colorPaletteSize = bitmap.readUInt32LE(46);
-  // this.onecolor = bitmap.toString('hex',58,62);
-  // this.onepixel = bitmap.toString('utf8', 1078, 1079);
   this.paletteStart = (this.pixelArrayStart - this.numColor*4);
-  // this.paletteLength;
 
 };
-
 
 AllThatData.prototype.toBuffer = function(){
   const result = new Buffer(this.size);
@@ -60,20 +51,3 @@ AllThatData.prototype.toBuffer = function(){
 
 const coolImage = new AllThatData(bitmap);
 coolImage.toBuffer();
-
-// var bitmapData = new AllThatData(bitmap);
-// console.log(bitmapData);
-//
-// AllThatData.prototype.backToBuf = function (data) {
-//   var rebuf = new Buffer(data.buffer);
-//   console.log(rebuf);
-// };
-//
-// AllThatData.backToBuf();
-// var rebuf = new Buffer(bitmap);
-// console.log(bitmap);
-
-
-
-// var start = bitmapData.paletteStart;
-// var finish = bitmapData.pixelArrayStart;
