@@ -12,8 +12,7 @@ describe('Testing the bitmap head reader module', function(){
       //     };
       //     var headspc = data.toString('hex', 0, 14);
       //     expect(headspc).to.equal("424d462b00000000000036040000");
-      //     done();
-      });
+      done();
     });
   });
 });
