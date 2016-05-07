@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('fs');
-const bitmap = fs.readFileSync(__dirname +'/../img/bitmap1.bmp');
+const bitmap = fs.readFileSync(__dirname +'/../img/duck.bmp');
 const AllThatData = module.exports = function (buffer){
 
   // file header
@@ -94,4 +94,4 @@ if (input == 'transform'){
   // if (null) return cb(null);
 }
 
-fs.writeFileSync(__dirname + '/../output/' + input + 'newBitmap1.bmp',  bitmap);
+fs.writeFileSync(__dirname + '/../outputDuck/' + input + 'newDuck.bmp',  bitmap);
