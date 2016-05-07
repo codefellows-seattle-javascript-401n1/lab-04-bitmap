@@ -22,6 +22,7 @@ const AllThatData = module.exports = function (buffer){
   this.vertical = buffer.readUInt32LE(42);
   this.numColor = buffer.readUInt32LE(46);
   this.numImpColor = buffer.readUInt32LE(48);
+
   this.paletteStart = (this.pixelArrayStart - this.numColor*4);
 
 };
@@ -46,8 +47,8 @@ AllThatData.prototype.toBuffer = function(){
   result.writeInt32LE(this.numImpColor, 48);
 
   console.log('my buffer', result);
-
 };
 
 const coolImage = new AllThatData(bitmap);
 coolImage.toBuffer();
+console.log(coolImage);

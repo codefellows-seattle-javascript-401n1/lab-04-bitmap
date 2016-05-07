@@ -8,7 +8,7 @@ var filePath = __dirname + '/../img/bitmap1.bmp';
 function reader(path, cb) {
   fs.readFile(path, function(err, data){
     if (err) return cb('reader error', null);
-      cb(null, data.toString('hex', 0))
+    cb(null, data.toString('hex', 0));
   });
 }
 exports.reader = reader;
