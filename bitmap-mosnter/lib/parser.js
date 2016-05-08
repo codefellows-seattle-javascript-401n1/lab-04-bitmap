@@ -1,11 +1,6 @@
 'use strict';
 
 //take buffer create javascript object
-
-'use strict';
-//const fs = require('fs');
-
-//take buffer create javascript object
 module.exports.Buffobject = function(data) {
   this.originalBuffer = data;
   this.bheader = data.toString('utf8', 0, 2);
@@ -24,7 +19,7 @@ module.exports.Buffobject = function(data) {
   this.compressionobject = data.readInt32LE(30);
   this.horizontalrez = data.readInt32LE(38);
   this.vertrez = data.readInt32LE(42);
-  this.colorpalette = data.slice(64, 64 + (this.colors * 4));
+  this.colorpalette = data.slice(54, 54 + (this.colors * 4));
 };
 //make a method to turn object into buffer
 module.exports.Buffobject.prototype.toBuffer = function () {
