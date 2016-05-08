@@ -1,13 +1,15 @@
 'use strict';
 
 const bitmapreader = require('./lib/readbitmap');
-const bitoobject = require('./lib/parser');
-const colortransform = require('./lib/transform').colortransform;
-const pixeltransform = require('./lib/transform').findcolors;
-// read bitmapfile
+const bitobject = require('./lib/parser');
+const randomcolor = require('./lib/transform');
+const fs = require('fs');
+
+//read bitmapfile
 bitmapreader.bitmapHeader('bitmap1.bmp', (err, data) => {
-  var newobject = new bitoobject.Buffobject(data);
+  var newobject = new bitobject.Buffobject(data);
   console.log(newobject);
-  colortransform(newobject.colors);
-  pixeltransform(newobject.size);
+  console.log(typeof(randomcolor.randomcolor()));
+  newobject.colorpalette.fill(`#${randomcolor.randomcolor()}`);
+  fs.writeFile('./randomize.bmp', data);
 });
