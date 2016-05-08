@@ -3,20 +3,20 @@
 const fs = require('fs');
 var buffer = null;
 
-var filePath = __dirname + '/../img/bitmap1.bmp';
+// var filePath = __dirname + '/../img/bitmap1.bmp';
 
 function reader(path, cb) {
   fs.readFile(path, function(err, data){
-    if (err) return cb('reader error', null);
-      cb(null, data.toString('hex', 0))
+    if (err) return cb && cb('reader error', null);
+    cb && cb(null, data)
   });
 }
 exports.reader = reader;
 
-function writer(endPath, cb){
-  fs.writeFile(endPath, 'bufferToBitmap', 'hex', (err) => {
+function writer(endPath, data, cb){
+  fs.writeFile(endPath, data, 'hex', (err) => {
     if(err) return cb('writer error', null);
-    return cb(null, 'write complete');
+    cb && cb(null, 'write complete');
   });
 }
 
