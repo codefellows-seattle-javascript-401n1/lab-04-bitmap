@@ -20,7 +20,7 @@ module.exports.Buffobject = function(data) {
   this.vertrez = data.readInt32LE(42);
 
 };
-//make a method to turn object into buffer
+// make a method to turn object into buffer
 // module.exports.Buffobject.prototype.toBuffer = function () {
 //   var result = new Buffer(16);
 //   result
