@@ -31,7 +31,6 @@ describe('Testing the bitmap file handler module', function(){
       head.writer(endPath, function(err, data){
         fs.access(endPath, fs.F_OK, (err) => {
           expect(err).not.ok;
-          //De
           done();
         });
       });

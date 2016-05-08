@@ -49,27 +49,14 @@ randomColor(coolImage.palette);
 const input = process.argv[2];
 const palette = bitmap.slice(this.paletteStart, this.pixelArrayStart);
 
-// const flipper = function flipper(palette){
-//   for (let i = 0; i < palette.length ; i++) {
-//   }
-//   console.log(palette);
-// };
-// flipper(coolImage.palette);
-
-// Should i move <below> to handler.js???
-// // var input = process.argv[2];
-// // var palette = bitmap.slice(this.paletteStart, this.pixelArrayStart);
 
 if (input == 'transform'){
   transform(bitmap, palette);
 } else if (input =='randomColor'){
   randomColor(bitmap, palette);
-} else if (input =='flipper'){
-  flipper(bitmap, palette);
 } else {
   console.log('Please choose your Transformation!');
-  // return bitmap;
-  // if (null) return cb(null);
+
 }
 
 fs.writeFileSync(__dirname + '/../output/' + input + 'newBitmap1.bmp',  bitmap);

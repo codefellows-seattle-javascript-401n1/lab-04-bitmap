@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const bitmap = fs.readFileSync(__dirname +'/../img/bitmap1.bmp');
 
 const AllThatData = module.exports = function (buffer){
   // file header
@@ -45,11 +44,8 @@ AllThatData.prototype.toBuffer = function(){
   result.writeInt32LE(this.vertical, 42);
   result.writeInt32LE(this.numColor, 46);
   result.writeInt32LE(this.numImpColor, 48);
-  this.palette.copy(result, this.paletteStart)
-  this.pixelArray.copy(result, this.pixelArrayStart)
+  this.palette.copy(result, this.paletteStart);
+  this.pixelArray.copy(result, this.pixelArrayStart);
   console.log('palette copy check:', this.palette.compare(result.slice(this.paletteStart, this.pixelArrayStart)));
   return result;
 };
-//
-// const coolImage = new AllThatData(bitmap);
-// coolImage.toBuffer();

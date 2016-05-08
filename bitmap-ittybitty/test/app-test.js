@@ -10,10 +10,10 @@ describe('Testing the app module that will parse a buffer', function(){
   describe('testing the AllThatData constructor', function(){
     it('should be an head field of "42 4d"', function(){
       expect(test.headField).to.equal('BM');
-      console.log(test)
+      console.log(test);
     });
     it('should be an object with a headerSize propery that equals 14', function(){
-        expect(test.headerSize).to.equal(40);
+      expect(test.headerSize).to.equal(40);
     });
     it('should be an object with a pixelArrayStart prpoperty', function(){
       expect(test).to.have.property('pixelArrayStart');

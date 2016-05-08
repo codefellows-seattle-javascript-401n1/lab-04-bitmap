@@ -1,14 +1,12 @@
 'use strict';
 
 const fs = require('fs');
-var buffer = null;
 
-// var filePath = __dirname + '/../img/bitmap1.bmp';
 
 function reader(path, cb) {
   fs.readFile(path, function(err, data){
     if (err) return cb && cb('reader error', null);
-    cb && cb(null, data)
+    cb && cb(null, data);
   });
 }
 exports.reader = reader;
