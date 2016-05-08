@@ -20,7 +20,7 @@ module.exports.Buffobject = function(data) {
   this.horizontalrez = data.readInt32LE(38);
   this.vertrez = data.readInt32LE(42);
   this.colorpalette = data.slice(54, (54 + (this.colors * 4)));
-  this.pixelarray = data.slice(64 + (this.colors * 4), 11070);
+  this.pixelarray = data.slice(64 + (this.colors * 4));
 };
 //make a method to turn object into buffer
 module.exports.Buffobject.prototype.toBuffer = function () {

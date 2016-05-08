@@ -7,6 +7,7 @@ const fs = require('fs');
 
 //read bitmapfile
 bitmapreader.bitmapHeader('bitmap1.bmp', (err, data) => {
+  if (err) throw err;
   var newobject = new bitobject.Buffobject(data);
   console.log(newobject);
   console.log(typeof(randomcolor.randomcolor()));
