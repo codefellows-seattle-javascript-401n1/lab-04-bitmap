@@ -50,6 +50,3 @@ AllThatData.prototype.toBuffer = function(){
   console.log('palette copy check:', this.palette.compare(result.slice(this.paletteStart, this.pixelArrayStart)));
   return result;
 };
-//
-// const coolImage = new AllThatData(bitmap);
-// coolImage.toBuffer();

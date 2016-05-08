@@ -12,7 +12,6 @@ var newBitmap
 
 handler.reader(bitmap, function(err, data){
   bufferOne = data
-  console.log('bufferOne: ' + bufferOne);
   parsedBitmap = new app(bufferOne);
   newBitmap = parsedBitmap
   transformer.randomColor(newBitmap.palette);
