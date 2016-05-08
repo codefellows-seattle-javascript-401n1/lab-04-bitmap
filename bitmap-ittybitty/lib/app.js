@@ -23,7 +23,8 @@ const AllThatData = module.exports = function (buffer){
   this.numColor = buffer.readUInt32LE(46);
   this.numImpColor = buffer.readUInt32LE(48);
   this.paletteStart = (this.pixelArrayStart - this.numColor*4);
-
+  this.palette = buffer.slice(this.paletteStart, this.pixelArrayStart);
+  this.pixelArray = buffer.slice(this.pixelArrayStart);
 };
 
 AllThatData.prototype.toBuffer = function(){
@@ -44,10 +45,11 @@ AllThatData.prototype.toBuffer = function(){
   result.writeInt32LE(this.vertical, 42);
   result.writeInt32LE(this.numColor, 46);
   result.writeInt32LE(this.numImpColor, 48);
-
-  console.log('my buffer', result);
-
+  this.palette.copy(result, this.paletteStart)
+  this.pixelArray.copy(result, this.pixelArrayStart)
+  console.log('palette copy check:', this.palette.compare(result.slice(this.paletteStart, this.pixelArrayStart)));
+  return result;
 };
-
-const coolImage = new AllThatData(bitmap);
-coolImage.toBuffer();
+//
+// const coolImage = new AllThatData(bitmap);
+// coolImage.toBuffer();
