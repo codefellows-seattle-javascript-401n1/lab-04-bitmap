@@ -36,7 +36,7 @@ const transform = function transform(palette) {
   }
   console.log(palette);
 };
-transform(coolImage.palette);
+// transform(coolImage.palette);
 
 const randomColor = function randomColor(palette){
   for (let i = 0; i < palette.length ; i++) {
@@ -44,7 +44,7 @@ const randomColor = function randomColor(palette){
   }
   console.log(palette);
 };
-randomColor(coolImage.palette);
+// randomColor(coolImage.palette);
 
 const input = process.argv[2];
 const palette = bitmap.slice(this.paletteStart, this.pixelArrayStart);
@@ -76,7 +76,7 @@ const flipper = function flipper(palette){
   }
   console.log(palette);
 };
-flipper(coolImage.palette);
+// flipper(coolImage.palette);
 
 // Should i move <below> to handler.js???
 // // var input = process.argv[2];
@@ -84,14 +84,15 @@ flipper(coolImage.palette);
 
 if (input == 'transform'){
   transform(bitmap, palette);
+  return bitmap;
 } else if (input =='randomColor'){
   randomColor(bitmap, palette);
+  return bitmap;
 } else if (input =='flipper'){
   flipper(bitmap, palette);
+  return bitmap;
 } else {
-  console.log('Please choose your Transformation!');
-  // return bitmap;
-  // if (null) return cb(null);
+  console.log('"Please choose your Transformation!"');
 }
 
 fs.writeFileSync(__dirname + '/../outputDuck/' + input + 'newDuck.bmp',  bitmap);

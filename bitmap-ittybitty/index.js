@@ -11,3 +11,5 @@ colorTx(function(err, data){
   if (err) throw err;
   console.log('Ta-Daaaa!')
 });
+
+fs.writeFileSync(__dirname + '/../output/' + input + 'newBitmap1.bmp',  bitmap);
