@@ -10,7 +10,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('lint', function () {
-  return gulp.src(['*.js', 'lib/*.js', '!node_modules/*js'])
+  return gulp.src(['*.js', 'lib/*.js', 'test/*.js', '!node_modules/*js'])
           .pipe(eslint())
           .pipe(eslint.format());
 });
