@@ -1,7 +1,5 @@
 'use strict';
 
-const fs = require('fs');
-
 const AllThatData = module.exports = function (buffer){
   // file header
   this.headField = buffer.toString('utf8', 0, 2);

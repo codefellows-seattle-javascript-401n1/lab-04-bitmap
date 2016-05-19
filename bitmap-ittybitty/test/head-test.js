@@ -29,6 +29,7 @@ describe('Testing the bitmap file handler module', function(){
   describe('testing writer function', function(){
     it('it should create a file', function(done){
       head.writer(endPath, function(err, data){
+        //TODO: we need to use 'data' somewhere;
         fs.access(endPath, fs.F_OK, (err) => {
           expect(err).not.ok;
           done();
