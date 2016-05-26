@@ -13,13 +13,13 @@ exports.bitmapReader = function(image, callback) {
 };
 
 //create a write module
-exports.newbitmapfile = function(buffer, callback) {
-  fs.writeFile(__dirname + 'newimage.bmp', buffer, (err) => {
+exports.writeBitmapFile = function(buffer, callback) {
+  fs.writeFile(__dirname + 'newImage.bmp', buffer, (err) => {
     if (err) {
       console.err;
       callback(err, null);
       return;
     }
-    callback(null, 'newimage.bmp');
+    callback(null, 'newImage.bmp');
   });
 };

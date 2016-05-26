@@ -1,32 +1,32 @@
 //takes js bitmap & manipulate data
 'use strict';
-var randomnum = function(min, max) {
+var randomNum = function(min, max) {
   let rando = Math.floor(Math.random() * (max - min) + min);
   return rando;
 };
 
-exports.singTheBlues = function(bitmap) {
-  bitmap.colorpalette.fill('#0000EE'); //fills colorpalette with blue
+exports.singTheBlues = function(object) {
+  object.colorPalette.fill('#0000EE'); //fills colorpalette with blue
 };
 
 exports.grey = function(object) {
-  object.colorpalette.fill(128); //fills colorpalette with grey
+  object.colorPalette.fill(128); //fills colorpalette with grey
 };
 
 exports.black = function(object) {
-  object.colorpalette.fill(0); //fills colorpalette with black
+  object.colorPalette.fill(0); //fills colorpalette with black
 };
 
-exports.randomcolor = function(object) {
-  let lettersnums = [1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
-  let randomhex = [];
+exports.randomColor = function(object) {
+  let lettersNums = [1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+  let randomHex = [];
   for (var i = 0; i < 6; i++) {
-    var random = randomnum(0, 15);
-    randomhex += lettersnums[random];
+    var random = randomNum(0, 15);
+    randomHex += lettersNums[random];
   }
-  console.log(`hex: ${randomhex}`);
-  object.colorpalette.fill(`#${randomhex}`);
-  return randomhex;
+  console.log(`hex: ${randomHex}`);
+  object.colorPalette.fill(`#${randomHex}`);
+  return randomHex;
 };
 
 exports.changeColor = function(bitmap) {
