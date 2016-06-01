@@ -7,6 +7,7 @@ function transform(palette) {
       palette[i] = 255;
     }
   }
+  return palette;
 }
 exports.transformAdd2 = transform;
 
@@ -15,5 +16,6 @@ const randomColor = function randomColor(palette){
   for (let i = 0; i < palette.length ; i++) {
     palette[i] = Math.floor((Math.random()*255));
   }
+  return palette;
 };
 exports.randomColor = randomColor;
